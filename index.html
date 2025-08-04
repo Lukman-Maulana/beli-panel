@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bew Store Panel Run Bot</title>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Bew<span class="highlight">Store</span></h1>
+            </div>
+            <nav class="auth-nav">
+                <button id="login-btn" class="auth-button primary">Login / Register</button>
+                <div id="user-info" class="hidden">
+                    <span id="welcome-msg"></span>
+                    <button id="logout-btn" class="auth-button">Logout</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="auth-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><div id="firebaseui-auth-container"></div></div></div>
+        
+        <div class="tab-navigation">
+            <button class="tab-link active" onclick="openTab(event, 'Products')"><i class="fas fa-box-open"></i> Produk & Reseller</button>
+            <button class="tab-link" onclick="openTab(event, 'Services')"><i class="fas fa-cogs"></i> Layanan Kami</button>
+            <button class="tab-link" onclick="openTab(event, 'Reviews')"><i class="fas fa-star"></i> Ulasan Pelanggan</button>
+            <button class="tab-link" onclick="openTab(event, 'Support')"><i class="fas fa-life-ring"></i> Tiket Dukungan</button>
+        </div>
+
+        <div id="Products" class="tab-content" style="display: block;">
+            <section id="products">
+                <h2><i class="fas fa-memory"></i> Panel Regular</h2>
+                 <div class="product-card" data-original-price="1000">
+                    <img src="https://i.ibb.co/BHY5ntpv/1752068101525.png" alt="Panel RAM 1GB">
+                    <div class="product-details">
+                        <h3>Panel RAM 1 GB</h3>
+                        <p class="price">Harga: Rp 1.000</p>
+                        <p class="description"><strong>CPU:</strong> 10%<br>Ideal untuk pemula.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+                <div class="product-card" data-original-price="2000">
+                    <img src="https://i.ibb.co/BHY5ntpv/1752068101525.png" alt="Panel RAM 2GB">
+                    <div class="product-details">
+                        <h3>Panel RAM 2 GB</h3>
+                        <p class="price">Harga: Rp 2.000</p>
+                        <p class="description"><strong>CPU:</strong> 30%<br>Respon cepat untuk bot menengah.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+                <div class="product-card" data-original-price="3000">
+                    <img src="https://i.ibb.co/BHY5ntpv/1752068101525.png" alt="Panel RAM 3GB">
+                    <div class="product-details">
+                        <h3>Panel RAM 3 GB</h3>
+                        <p class="price">Harga: Rp 3.000</p>
+                        <p class="description"><strong>CPU:</strong> 40%<br>Cocok untuk beberapa bot aktif.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+                <div class="product-card" data-original-price="4000">
+                    <img src="https://i.ibb.co/BHY5ntpv/1752068101525.png" alt="Panel RAM 4GB">
+                    <div class="product-details">
+                        <h3>Panel RAM 4 GB</h3>
+                        <p class="price">Harga: Rp 4.000</p>
+                        <p class="description"><strong>CPU:</strong> 55%<br>Populer untuk bot musik/komunitas.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+                <div class="product-card" data-original-price="5000">
+                    <img src="https://i.ibb.co/BHY5ntpv/1752068101525.png" alt="Panel RAM 5GB">
+                    <div class="product-details">
+                        <h3>Panel RAM 5 GB</h3>
+                        <p class="price">Harga: Rp 5.000</p>
+                        <p class="description"><strong>CPU:</strong> 70%<br>Kekuatan lebih untuk bot multifungsi.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+                <div class="product-card" data-original-price="6000">
+                    <img src="https://i.ibb.co/BHY5ntpv/1752068101525.png" alt="Panel RAM 6GB">
+                    <div class="product-details">
+                        <h3>Panel RAM 6 GB</h3>
+                        <p class="price">Harga: Rp 6.000</p>
+                        <p class="description"><strong>CPU:</strong> 80%<br>Sangat bertenaga untuk banyak bot.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+                <div class="product-card" data-original-price="7000">
+                    <img src="https://i.ibb.co/BHY5ntpv/1752068101525.png" alt="Panel RAM 7GB">
+                    <div class="product-details">
+                        <h3>Panel RAM 7 GB</h3>
+                        <p class="price">Harga: Rp 7.000</p>
+                        <p class="description"><strong>CPU:</strong> 90%<br>Performa mendekati puncak.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+                <div class="product-card" data-original-price="8GB000">
+                    <img src="https://i.ibb.co/BHY5ntpv/1752068101525.png" alt="Panel RAM 8GB">
+                    <div class="product-details">
+                        <h3>Panel RAM 8 GB</h3>
+                        <p class="price">Harga: Rp 8.000</p>
+                        <p class="description"><strong>CPU:</strong> 100%<br>Kekuatan maksimal tanpa lag.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+                <div class="product-card special-offer" data-original-price="7000">
+                    <img src="https://i.ibb.co/BHY5ntpv/1752068101525.png" alt="Panel Unlimited">
+                    <div class="product-details">
+                        <h3>Panel Unlimited</h3>
+                        <p class="price">Harga: Rp 7.000 <i>promo</i></p>
+                        <p class="description"><strong>CPU & RAM:</strong> Unlimited<br>Bebas batas tanpa kompromi.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+            </section>
+            <section id="reseller-info">
+                <h2><i class="fas fa-users-cog"></i> Panel Reseller</h2>
+                <div class="product-card" data-original-price="10000">
+                    <div class="product-icon"><i class="fas fa-user-cog"></i></div>
+                    <div class="product-details">
+                        <h3>Reseller 10.000</h3>
+                        <h3>Admin 13.000</h3>
+                        <h3>Partner 17.000</h3>
+                        <h3>Owner 20.000</h3>
+                        
+                        <p class="description">Jual ulang semua produk panel kami dengan kebebasan menentukan harga dan sudah siap pakai jdi admin grup tanpa ribet" setting bot.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+                <div class="product-card" data-original-price="25000">
+                    <div class="product-icon"><i class="fas fa-user-crown"></i></div>
+                    <div class="product-details">
+                        <h3>Tangan Kanan Panel</h3>
+                        <p class="price">Harga: Rp 25.000</p>
+                        <p class="description">Level tertinggi, jual ulang panel dan buka pendaftaran reseller baru.</p>
+                        <a href="#" class="buy-button" target="_blank"><i class="fab fa-whatsapp"></i> Beli Sekarang</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="Services" class="tab-content">
+            <div class="service-grid">
+                <div class="service-card"><div class="service-icon"><i class="fas fa-server"></i></div><div class="service-content"><h4>Spesifikasi Server</h4><p>Hardware kelas atas dengan CPU Intel/AMD, RAM DDR4, dan NVMe SSD.</p></div></div>
+                <div class="service-card"><div class="service-icon"><i class="fas fa-shield-alt"></i></div><div class="service-content"><h4>Keamanan Terjamin</h4><p>Dilengkapi proteksi DDoS-Guard & Firewall untuk menjaga bot Anda aman.</p></div></div>
+                <div class="service-card"><div class="service-icon"><i class="fas fa-check-circle"></i></div><div class="service-content"><h4>Garansi Panel</h4><p>Garansi berlaku 1 minggu setelah pembelian dengan 1x klaim jika ada kendala.</p></div></div>
+                <a href="https://wa.me/6288809776791?text=Halo,%20saya%20butuh%20bantuan." target="_blank" class="service-link-card"><div class="service-card"><div class="service-icon"><i class="fas fa-headset"></i></div><div class="service-content"><h4>Bantuan 24/7</h4><p>Tim support kami siap membantu Anda kapan saja melalui WhatsApp.</p></div></div></a>
+            </div>
+        </div>
+        
+        <div id="Reviews" class="tab-content">
+            <div class="reviews-section">
+                <h2>Apa Kata Mereka?</h2>
+                <p>Ulasan nyata dari para pelanggan yang telah mempercayai layanan kami.</p>
+                <div class="review-grid">
+                    <div class="review-card"><div class="review-header"><span class="review-name">Andi Setiawan</span><div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><p class="review-text">"Mantap! Panelnya kenceng dan stabil banget buat bot musik saya. Recommended!"</p></div>
+                    <div class="review-card"><div class="review-header"><span class="review-name">Citra Lestari</span><div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><p class="review-text">"Pelayanannya ramah dan cepat tanggap. Waktu ada kendala, dibantu sampai tuntas."</p></div>
+                    <div class="review-card"><div class="review-header"><span class="review-name">Panz Store</span><div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><p class="review-text">"Panelnya Gacor sc gua aman disini servernya juga lanjayy"</p></div>
+                    <div class="review-card"><div class="review-header"><span class="review-name">Ditz Store</span><div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><p class="review-text">"Gacor sih panelnya anti delay"</p></div>
+                    <div class="review-card"><div class="review-header"><span class="review-name">Gunz Store</span><div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><p class="review-text">"Panelnya mantep wak buat run bot bug lancar abiss"</p></div>
+                    <div class="review-card"><div class="review-header"><span class="review-name">Arka Store</span><div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><p class="review-text">"Baru 5 Hari make server mokad langsung di ganti cuy gacor emg garansinya gamain²"</p></div>
+                    <div class="review-card"><div class="review-header"><span class="review-name">Dimz New</span><div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><p class="review-text">"Buy Adp disini tinggal pake jirr di kasih akses bot ga ribet konek² lagi"</p></div>
+                </div>
+            </div>
+            <div class="review-submission-container">
+                <h2>Berikan Ulasan Anda</h2>
+                <p>Ulasan terbaik akan kami tampilkan di halaman ini.</p>
+                <form id="review-form" action="https://formspree.io/f/manjgkng" method="POST">
+                    <div class="form-group"><label for="review-name">Nama Anda</label><input type="text" id="review-name" name="Nama" required></div>
+                    <div class="form-group"><label>Rating Kepuasan</label><div class="rating-input"><input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars"><i class="fas fa-star"></i></label><input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars"><i class="fas fa-star"></i></label><input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars"><i class="fas fa-star"></i></label><input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars"><i class="fas fa-star"></i></label><input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star"><i class="fas fa-star"></i></label></div></div>
+                    <div class="form-group"><label for="review-message">Ulasan Anda</label><textarea id="review-message" name="Ulasan" rows="5" required placeholder="Ceritakan pengalaman Anda..."></textarea></div>
+                    <button type="submit" class="submit-button">Kirim Ulasan</button>
+                </form>
+                <div id="review-form-status"></div>
+            </div>
+        </div>
+
+        <div id="Support" class="tab-content">
+            <div class="support-ticket-container">
+                <h2>Formulir Laporan Kendala</h2>
+                <p>Jika Anda mengalami kendala dengan layanan kami, silakan isi formulir di bawah ini.</p>
+                <form id="support-form" action="https://formspree.io/f/xeokbdee" method="POST">
+                    <div class="form-group"><label for="name">Nama Anda</label><input type="text" id="name" name="Nama" required></div>
+                    <div class="form-group"><label for="email">Alamat Email Anda</label><input type="email" id="email" name="Email" required></div>
+                    <div class="form-group"><label for="subject">Subjek Kendala</label><select id="subject" name="Subjek" required><option value="" disabled selected>Pilih jenis kendala...</option><option value="Panel Tidak Bisa Diakses">Panel Tidak Bisa Diakses</option><option value="Bot Sering Mati">Bot Sering Mati</option></select></div>
+                    <div class="form-group"><label for="message">Deskripsi Kendala</label><textarea id="message" name="Pesan" rows="6" required></textarea></div>
+                    <button type="submit" class="submit-button">Kirim Tiket</button>
+                </form>
+                <div id="form-status"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer><p>&copy; 2025 Bew Store. All Rights Reserved.</p></footer>
+    
+    <div class="chat-fab-container"><div class="chat-options"><a href="https://wa.me/6288809776791?text=Halo,%20saya%20ingin%20bertanya." target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="https://t.me/bewstr" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a href="#" id="live-chat-link" title="Live Chat"><i class="fas fa-comment-dots"></i></a></div><div class="chat-fab" id="chat-fab-button"><i class="fas fa-comment"></i></div></div>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/686e593d569ae31911ef7709/1ivngp6oi';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

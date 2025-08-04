@@ -1,0 +1,153 @@
+:root {
+    --primary-color: #8A2BE2; /* BlueViolet */
+    --secondary-color: #4A90E2; /* RoyalBlue */
+    --background-color: #121212;
+    --card-color: #1E1E1E;
+    --border-color: #333;
+    --text-color: #EAEAEA;
+    --gray-text: #A0A0A0;
+    --star-color: #FFD700; /* Gold */
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --font-family: 'Poppins', sans-serif;
+    --border-radius: 12px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+/* --- HEADER & AUTHENTICATION --- */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem 1rem;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+.header-container { display: flex; justify-content: space-between; align-items: center; }
+.logo h1 { font-size: 2.5rem; font-weight: 700; margin: 0; }
+.logo .highlight { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+.auth-nav { display: flex; align-items: center; gap: 15px; }
+.auth-button { background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 8px 16px; border-radius: var(--border-radius); cursor: pointer; font-weight: 600; font-family: var(--font-family); transition: all 0.3s ease; }
+.auth-button.primary { background-color: #fff; border-color: #fff; color: var(--primary-color); }
+.auth-button:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+#user-info { display: flex; align-items: center; gap: 15px; color: #fff; }
+#welcome-msg { font-weight: 600; }
+
+/* --- TAB NAVIGATION --- */
+.tab-navigation { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 50px 0; }
+.tab-link { background-color: transparent; border: none; color: var(--gray-text); padding: 12px 25px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; position: relative; }
+.tab-link::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 3px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); transition: width 0.3s ease; }
+.tab-link:hover { color: var(--text-color); }
+.tab-link.active { color: #fff; }
+.tab-link.active::after { width: 100%; }
+.tab-link i { margin-right: 8px; }
+
+/* --- KONTEN UTAMA --- */
+main h2 { text-align: center; font-size: 2.8rem; margin-top: 60px; margin-bottom: 2rem; font-weight: 700; }
+#reseller-info h2 { margin-top: 80px; }
+.tab-content { display: none; animation: fadeIn 0.6s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- KARTU PRODUK & RESELLER --- */
+.product-card { background-color: var(--card-color); border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 30px; display: flex; align-items: center; gap: 25px; padding: 25px; transition: all 0.3s ease; overflow: hidden; }
+.product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); border-color: var(--secondary-color); }
+.product-card img { width: 150px; height: 150px; object-fit: cover; border-radius: var(--border-radius); flex-shrink: 0; }
+.product-icon { font-size: 4rem; width: 150px; flex-shrink: 0; text-align: center; color: var(--primary-color); transition: all 0.3s ease; }
+.product-card:hover .product-icon { transform: scale(1.1); color: var(--secondary-color); }
+.product-details { flex-grow: 1; }
+.product-details h3 { font-size: 1.8rem; color: #fff; margin-bottom: 8px; }
+.price { font-size: 1.5rem; font-weight: 700; color: var(--secondary-color); margin-bottom: 15px; }
+.price .original-price { text-decoration: line-through; color: var(--gray-text); font-size: 1.1rem; margin-right: 10px; }
+.price .discount-label { background: linear-gradient(90deg, #e63946, #f72585); color: #fff; font-size: 0.8rem; padding: 3px 8px; border-radius: 6px; font-weight: bold; vertical-align: middle; margin-left: 8px; }
+.description { color: var(--gray-text); }
+.buy-button { display: inline-block; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); color: white; padding: 12px 25px; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; margin-top: 20px; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3); }
+.buy-button:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5); }
+.buy-button i { margin-right: 8px; }
+
+/* --- KARTU LAYANAN KAMI --- */
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+a.service-link-card { text-decoration: none; color: inherit; }
+.service-card { background: var(--card-color); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 30px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; height: 100%; }
+.service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); border-color: var(--secondary-color); }
+.service-icon { font-size: 2.5rem; color: var(--secondary-color); background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(138, 43, 226, 0.1)); width: 80px; height: 80px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 25px; transition: all 0.3s ease; }
+.service-card:hover .service-icon { transform: scale(1.1) rotate(-15deg); }
+.service-content h4 { font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 600; }
+.service-content p { color: var(--gray-text); }
+
+/* --- ULASAN & TIKET DUKUNGAN (FORM) --- */
+.reviews-section > p, .review-submission-container > p, .support-ticket-container > p { text-align: center; color: var(--gray-text); max-width: 600px; margin: 0 auto 40px auto; }
+.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.review-card { background: var(--card-color); border: 1px solid var(--border-color); padding: 30px; border-radius: var(--border-radius); display: flex; flex-direction: column; position: relative; }
+.review-card::before { content: '\f10d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 15px; left: 20px; color: rgba(255,255,255,0.05); font-size: 4rem; }
+.review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.review-name { font-weight: 600; color: #fff; }
+.star-rating { color: var(--star-color); }
+.review-text { color: var(--gray-text); font-style: italic; line-height: 1.8; }
+.review-submission-container, .support-ticket-container { border-top: 1px solid var(--border-color); padding-top: 40px; max-width: 800px; margin: 60px auto 0 auto; }
+.form-group { margin-bottom: 25px; }
+.form-group label { display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-color); }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 15px; background-color: var(--background-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-family: var(--font-family); font-size: 1rem; transition: all 0.3s ease; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--secondary-color); box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2); }
+.rating-input { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 5px; }
+.rating-input input[type="radio"] { display: none; }
+.rating-input label { color: var(--border-color); font-size: 2.5rem; cursor: pointer; transition: all 0.2s ease; }
+.rating-input label:hover, .rating-input label:hover ~ label, .rating-input input:checked ~ label { color: var(--star-color); transform: scale(1.1); }
+.submit-button { display: block; width: 100%; padding: 15px; font-size: 1.2rem; font-weight: 700; color: white; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
+.submit-button:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5); }
+#form-status, #review-form-status { margin-top: 20px; text-align: center; font-weight: 600; min-height: 24px; }
+
+/* --- MODAL & POP-UP --- */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; animation: fadeIn 0.3s ease; }
+.modal.active { display: flex; }
+.modal-content, .promo-modal-content { background-color: var(--card-color); margin: auto; padding: 30px; border: 1px solid var(--border-color); border-radius: var(--border-radius); width: 90%; max-width: 500px; position: relative; animation: slideIn 0.4s ease; box-shadow: var(--shadow); }
+.promo-modal-content { text-align: center; padding: 40px; border-top: 5px solid var(--primary-color); }
+.promo-icon { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 20px; }
+.promo-modal-content h2 { margin-top: 0; font-size: 2rem; color: #fff; }
+.promo-modal-content p { color: var(--gray-text); margin-bottom: 30px; }
+.highlight-text { color: var(--star-color); font-weight: 700; }
+.close-btn { color: var(--gray-text); position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; z-index: 10; transition: all 0.2s ease; }
+.close-btn:hover { color: #fff; transform: rotate(90deg); }
+#firebaseui-auth-container { margin-top: 20px; width: 100%; }
+
+/* --- LAIN-LAIN --- */
+.hidden { display: none !important; }
+footer { text-align: center; padding: 30px; margin-top: 60px; color: var(--gray-text); border-top: 1px solid var(--border-color); }
+.chat-fab-container { position: fixed; bottom: 30px; right: 30px; z-index: 1000; }
+.chat-fab { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 28px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease; }
+.chat-fab-container.open .chat-fab { transform: rotate(135deg); }
+.chat-options { position: absolute; bottom: 75px; right: 0; display: flex; flex-direction: column; gap: 15px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
+.chat-fab-container.open .chat-options { opacity: 1; visibility: visible; transform: translateY(0); }
+.chat-options a { width: 55px; height: 55px; background-color: var(--card-color); border: 1px solid var(--border-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 26px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.2s ease; }
+.chat-options a:hover { transform: scale(1.1) translateY(-3px); background-color: var(--secondary-color); }
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .product-card { flex-direction: column; text-align: center; }
+    .product-card img, .product-card .product-icon { width: 60%; height: auto; margin-bottom: 15px; }
+    .service-grid, .review-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+    .tab-link { padding: 10px 12px; font-size: 0.9rem; }
+    main h2 { font-size: 2rem; }
+}
